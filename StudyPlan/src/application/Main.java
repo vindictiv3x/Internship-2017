@@ -72,8 +72,7 @@ public class Main extends Application {
 		
 		
 		System.out.println("helo");
-		System.out.println("No NO  NO NO NO");
-
+		System.out.println("this is a test");
 		
 		
 		
