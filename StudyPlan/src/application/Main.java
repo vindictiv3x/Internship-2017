@@ -17,6 +17,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
@@ -29,6 +31,17 @@ import javafx.scene.text.Font;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+ 
 
 /**
 * The Gui Driver Class 
@@ -49,6 +62,8 @@ public class Main extends Application {
 	static RadioButton readStudyRB = new RadioButton("Read Study Plan");
 	static RadioButton newStudyRB = new RadioButton("Create New Study Plan");
 	
+	//Table
+	public TableView table = new TableView();
 	
 	
 	//The GUI
@@ -67,14 +82,33 @@ public class Main extends Application {
 
 		//Set Location of the Radio Buttons
 		radioButtons1.setLayoutX(900);
-		radioButtons1.setLayoutY(100);
+		radioButtons1.setLayoutY(100);	
+		
+		//Set the Location of the exit button
+		exit.setLayoutX(2050);
+		exit.setLayoutY(1100);
+		
+		//Set the header to the gui 
+		final Label studyPlanlabel = new Label("Study Plan");
+		studyPlanlabel.setFont(new Font("Arial" , 20));
+		
+		//Set the table editable
+		table.setEditable(true);
+		
+		//CREATE TABLE COLUMNS
+		TableColumn examObjectivesCol = new TableColumn("Exam Objectives");
+		TableColumn bookChapterCol = new TableColumn("Book Chapter");
+		TableColumn dateCol = new TableColumn("Date");
+		TableColumn notesCol = new TableColumn("Notes");
 		
 		
+		//Add the columns to the table
+		table.getColumns().addAll(examObjectivesCol, bookChapterCol, dateCol, notesCol);
 		
-		System.out.println("no no no no no n on ononononono");
-		System.out.println("Maksim");
-
-	
+		//Set the size and the location of the table 
+		table.setLayoutX(600);
+		table.setLayoutY(160);
+		table.setPrefSize(1000, 900);
 		
 		
 		
@@ -88,7 +122,7 @@ public class Main extends Application {
 		});
 		
 		//Creating the Group Object 
-		Group root = new Group(exit, radioButtons1);
+		Group root = new Group(exit, radioButtons1, studyPlanlabel,table);
 		
 		//Creating a scene object
 		Scene scene = new Scene(root);
