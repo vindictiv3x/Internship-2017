@@ -71,10 +71,7 @@ public class Main extends Application {
 		
 		
 		
-		System.out.println("helo");
-		System.out.println("this is not a test my friend");
-		System.out.println("no n o no");
-		
+		System.out.println("no no no no no n on ononononono");
 		
 		
 	
